@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
     <title>Library</title>
   </head>
   <body>
@@ -22,40 +21,64 @@
       <!--Library-->
       <div class="library-grid">
         <div class="library-header">
+          <!---NEW BOOK FORM-->
+          <div class="form-container hidden">
+            <form id="new-book-form">
+              <h1>Enter A Book You're Interested In...</h1>
+              <div class="form-inputs">
+                <label for="book_title">Book Title:</label>
+                <input
+                  type="text"
+                  id="book_title"
+                  name="Book Title"
+                  placeholder="The Hobbit"
+                />
+                <label for="Author">Author:</label>
+                <input
+                  type="text"
+                  id="Author"
+                  name="Author"
+                  placeholder="J. R. R. Tolken"
+                />
+                <label for="pages">Pages:</label>
+                <input type="text" id="pages" name="pages" placeholder="310" />
+                <fieldset>
+                  <legend>Have You Read This Book?</legend>
+                  <div class="radio">
+                    <div class="radio-pair">
+                      <label for="yes">YES</label>
+                      <input type="radio" name="read" id="yes" value="yes" />
+                    </div>
+                    <div class="radio-pair">
+                      <label for="no">NO</label>
+                      <input type="radio" name="read" id="no" value="no" />
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="form-btns">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="button" class="submit-btn">Submit</button>
+              </div>
+            </form>
+          </div>
+          <!---END NEW BOOK FORM-->
           <div class="library-title"><h2>Your Books</h2></div>
-          <button class="btn-new-book">NEW BOOK</button>
-          <button class="btn-delete-book">DELETE BOOK</button>
+          <button class="new-book-btn">NEW BOOK</button>
+          <button class="delete-book-btn">DELETE BOOK</button>
         </div>
         <div class="book-grid">
           <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
-          </div>
-          <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
-          </div>
-          <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
-          </div>
-          <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
-          </div>
-          <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
-          </div>
-          <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
-          </div>
-          <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
-          </div>
-          <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
-          </div>
-          <div class="library-card">
-            <div class="book-info">THIS IS A BOOK</div>
+            <div class="book-info-example">
+              <h2>Lord of the Rings</h2>
+              <h3>Author: J. R. R. Tolken</h3>
+              <h3>Pages: 900</h3>
+              <h3>Not Read</h3>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
