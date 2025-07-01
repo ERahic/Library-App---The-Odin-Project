@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  caret-color: transparent;
+  color: whitesmoke;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+}
+
+.main-container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 10% 90%;
+}
+
+.header {
+  display: grid;
+  background-color: rgb(63, 63, 70);
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-left: 50px;
+}
+
+.header-title > img {
+  width: 50px;
+}
+
+.btn {
+  display: flex;
+  padding: 3%;
+  width: 20%;
+  height: 50%;
+  font-weight: Bold;
+  font-size: 120%;
+  color: whitesmoke;
+  border: solid 1px whitesmoke;
+  border-radius: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 90%;
+  background-color: aqua;
+}
+
+.library-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  grid-column: 1 / 2;
+  grid-row: 1/ 2;
+  gap: 50px;
+  background-color: hsl(215, 19%, 24.7%);
+}
+
+.library-title {
+  margin-left: 60px;
+}
+
+.btn-new-book {
+  padding: 15px;
+  border-radius: 20px;
+  background-color: rgb(14, 165, 233);
+  color: whitesmoke;
+  font-weight: Bold;
+}
+
+.btn-delete-book {
+  padding: 15px;
+  border-radius: 20px;
+  font-weight: Bold;
+  color: whitesmoke;
+  background-color: red;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-rows: repeat(3, minmax(200px, 1fr));
+}
+
+.library-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px black;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+  padding: 50px;
+  width: 500px;
+  height: 75px;
+}
