@@ -5,11 +5,12 @@ const newBookForm = document.querySelector("#new-book-form");
 const bookGrid = document.querySelector(".book-grid");
 
 // Library array that will hold book objects created by the user
-const myLibrary = [];
+let myLibrary = [];
 
 // Book constructor to create book objects
-function Book(title, author, pages, read) {
+function Book(id, title, author, pages, read) {
   // Constructor
+  this.id = id;
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -19,12 +20,13 @@ function Book(title, author, pages, read) {
 // function to create books
 function addBookToLibrary() {
   // take params, create a book and then store it in the array
+  const id = crypto.randomUUID();
   const title = document.querySelector("#book_title").value;
   const author = document.querySelector("#author").value;
   const pages = document.querySelector("#pages").value;
   const read = document.querySelector('input[name="read"]:checked').value;
   // Create new book and push it to the my library array
-  const newBook = new Book(title, author, pages, read);
+  const newBook = new Book(id, title, author, pages, read);
   myLibrary.push(newBook);
   console.log("NEW BOOK ADDED: ", newBook);
   updateLibrary();
@@ -42,16 +44,30 @@ function updateLibrary() {
     const newBookInfo = document.createElement("div");
     newBookInfo.classList.add("book-info");
     newBookInfo.innerHTML = `<h2>${book.title}</h2> <h3>Author: ${book.author}</h3> 
-    <h3>Pages: ${book.pages}</h3> <h3>Has Read? ${book.read}</h3> 
-    <button type="button" class="delete-book-btn">DELETE BOOK</button>`;
+    <h3>Pages: ${book.pages}</h3> <h3>Has Read? ${book.read}</h3>`;
     // If the user read the book, left border will be green, else, red
     if (book.read === "Yes") {
       newLibraryCard.style.borderLeft = "solid 1rem green";
     } else {
       newLibraryCard.style.borderLeft = "solid 1rem red";
     }
+    // Btn to remove books that are on display
+    const deleteBookBtn = document.createElement("button");
+    deleteBookBtn.innerText = "DELETE BOOK";
+    deleteBookBtn.classList.add("delete-book-btn");
+    // Assigning book.id to delete button to set the data attribute
+    deleteBookBtn.dataset.id = book.id;
+    // Event listener to remove the book by matching the id of delete btn dataset
+    deleteBookBtn.addEventListener("click", function () {
+      const bookToDelete = this.dataset.id;
+      myLibrary = myLibrary.filter((book) => book.id != bookToDelete);
+      console.log("BOOK DELETED");
+      console.log(bookToDelete);
+      updateLibrary();
+    });
     bookGrid.appendChild(newLibraryCard);
     newLibraryCard.appendChild(newBookInfo);
+    newBookInfo.appendChild(deleteBookBtn);
   });
 }
 
@@ -60,12 +76,6 @@ const addBookBtn = document.querySelector(".new-book-btn");
 addBookBtn.addEventListener("click", function () {
   console.log("NEW BOOK ADDED");
   form.classList.remove("hidden");
-});
-
-// Btn to remove books that are on display
-const deleteBookBtn = document.querySelector(".delete-book-btn");
-deleteBookBtn.addEventListener("click", function () {
-  console.log("BOOK DELETED");
 });
 
 // Btn to cancel the form submition
