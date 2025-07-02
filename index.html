@@ -33,10 +33,10 @@
                   name="Book Title"
                   placeholder="The Hobbit"
                 />
-                <label for="Author">Author:</label>
+                <label for="author">Author:</label>
                 <input
                   type="text"
-                  id="Author"
+                  id="author"
                   name="Author"
                   placeholder="J. R. R. Tolken"
                 />
@@ -47,33 +47,34 @@
                   <div class="radio">
                     <div class="radio-pair">
                       <label for="yes">YES</label>
-                      <input type="radio" name="read" id="yes" value="yes" />
+                      <input type="radio" name="read" id="yes" value="Yes" />
                     </div>
                     <div class="radio-pair">
                       <label for="no">NO</label>
-                      <input type="radio" name="read" id="no" value="no" />
+                      <input type="radio" name="read" id="no" value="No" />
                     </div>
                   </div>
                 </fieldset>
               </div>
               <div class="form-btns">
                 <button type="button" class="cancel-btn">Cancel</button>
-                <button type="button" class="submit-btn">Submit</button>
+                <button type="submit" class="submit-btn">Submit</button>
               </div>
             </form>
           </div>
           <!---END NEW BOOK FORM-->
           <div class="library-title"><h2>Your Books</h2></div>
           <button class="new-book-btn">NEW BOOK</button>
-          <button class="delete-book-btn">DELETE BOOK</button>
         </div>
         <div class="book-grid">
           <div class="library-card">
             <div class="book-info-example">
+              <h5>Example</h5>
               <h2>Lord of the Rings</h2>
               <h3>Author: J. R. R. Tolken</h3>
               <h3>Pages: 900</h3>
-              <h3>Not Read</h3>
+              <h3>Has Read? No</h3>
+              <button type="button" class="delete-book-btn">DELETE BOOK</button>
             </div>
           </div>
         </div>
